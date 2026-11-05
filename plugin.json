@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "codex-antigravity",
+  "version": "0.2.1",
+  "description": "Delegate bounded tasks from Codex to local Antigravity Desktop with model routing, task polling and cancellation.",
+  "homepage": "https://github.com/wandererpg/codex-antigravity",
+  "repository": "https://github.com/wandererpg/codex-antigravity",
+  "keywords": ["codex", "antigravity", "mcp", "task-delegation"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "codex-antigravity",
+        "shortDescription": "连接本机 Antigravity，委派任务并跟踪结果",
+        "longDescription": "Codex 组织有明确边界的任务，由本机 Antigravity Desktop 执行或讨论。提供模型路由、状态查询、结果跟踪和任务取消；使用桌面应用当前账号、额度与权限。",
+        "capabilities": ["Interactive", "Read", "Write"]
+      }
+    }
+  }
+}

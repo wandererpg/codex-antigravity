@@ -1,0 +1,13 @@
+{
+  "name": "codex-antigravity",
+  "version": "0.2.1",
+  "description": "Standalone Codex integration for delegating bounded tasks to local Antigravity Desktop.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "codex-antigravity",
+    "shortDescription": "连接本机 Antigravity，委派任务并跟踪结果",
+    "longDescription": "通过本机 Antigravity Desktop 执行有明确边界的任务，支持模型路由、状态查询、结果跟踪和取消。使用桌面当前账号、额度与权限。",
+    "capabilities": ["Interactive", "Read", "Write"]
+  }
+}

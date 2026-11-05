@@ -1,0 +1,11 @@
+node_modules/
+.local/
+*.log
+dist/
+coverage/
+*.zip
+*.sha256
+.DS_Store
+Thumbs.db
+!releases/*.zip
+!releases/*.sha256

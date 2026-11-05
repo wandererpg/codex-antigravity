@@ -1,0 +1,73 @@
+{
+  "description": "由 Codex 根据任务复杂度选择 Medium 或 High；显式模型优先。auto 为简单任务 Medium、复杂任务 High、讨论 Medium。自动路由仅匹配指定系列与档位。",
+  "defaultTaskType": "simple",
+  "routes": {
+    "simple": {
+      "description": "简单任务、文本润色",
+      "family": "gemini-3.8-flash",
+      "defaultTier": "medium",
+      "tiers": {
+        "medium": {
+          "id": "gemini-3.8-flash-medium"
+        },
+        "high": {
+          "id": "gemini-3.8-flash-high"
+        }
+      }
+    },
+    "complex": {
+      "description": "复杂任务",
+      "family": "claude-opus-5-5",
+      "defaultTier": "high",
+      "tiers": {
+        "medium": {
+          "id": "claude-opus-5-5-medium"
+        },
+        "high": {
+          "id": "claude-opus-5-5-high"
+        }
+      }
+    },
+    "discussion": {
+      "description": "讨论方案的队友",
+      "family": "gemini-4-argon",
+      "defaultTier": "medium",
+      "tiers": {
+        "medium": {
+          "id": "gemini-4-argon-medium"
+        },
+        "high": {
+          "id": "gemini-4-argon-high"
+        }
+      }
+    }
+  },
+  "quotaFallback": {
+    "description": "仅复杂任务当前使用 Opus 5.5 且额度不足时切换 Flash；auto 继承当前 Medium/High，Flash High 不可用时回退 Flash Medium；其他错误不触发回退。",
+    "taskType": "complex",
+    "fromFamily": "claude-opus-5-5",
+    "to": {
+      "family": "gemini-3.8-flash",
+      "defaultTier": "medium",
+      "tiers": {
+        "medium": {
+          "id": "gemini-3.8-flash-medium"
+        },
+        "high": {
+          "id": "gemini-3.8-flash-high"
+        }
+      }
+    },
+    "errorCodes": [
+      "QUOTA_EXCEEDED"
+    ],
+    "errorMessagePatterns": [
+      "resource[_ -]exhausted",
+      "quota.{0,60}(exceed|exhaust|reach|insufficient)",
+      "(usage|rate|credit).{0,30}limit.{0,20}(reach|exceed)",
+      "insufficient.{0,20}(quota|credit)",
+      "额度.{0,15}(不足|耗尽|用完|已满)",
+      "配额.{0,15}(不足|耗尽|用完|超出)"
+    ]
+  }
+}

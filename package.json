@@ -1,0 +1,20 @@
+{
+  "name": "codex-antigravity",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "description": "Standalone Codex MCP plugin for bounded task delegation to local Antigravity Desktop, with model routing and task tracking.",
+  "homepage": "https://github.com/wandererpg/codex-antigravity#readme",
+  "repository": { "type": "git", "url": "https://github.com/wandererpg/codex-antigravity.git" },
+  "bugs": { "url": "https://github.com/wandererpg/codex-antigravity/issues" },
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test",
+    "check": "node scripts/diagnose.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.25.0"
+  }
+}
